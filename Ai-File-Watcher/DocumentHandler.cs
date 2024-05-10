@@ -21,9 +21,7 @@ public sealed class DocumentHandler
             Console.WriteLine("OpenAiKey oder OpenAiEndpoint nicht gefunden");
             return new Document();
         }
-
-        var prompt =
-            "Dein Job ist es meinen Inhalt zu Kategorisieren.\ndie Kategorien sind:\n-Rechnung\n-Angebot\n-Sonstiges\n\nDer Eigene Firmenname ist \"Fantasie Webdesign GmbH\", Ermittle den Firmenname vom Kunden.\n\nDu Antwortest ausschließlich nur mit einem JSON-Datensatz:\n{\n \"category\":\"Rechnung\",\n \"company\":\"Test Gmbh\"\n}\n###\n";
+        
         OpenAIClient client = new OpenAIClient(
             new Uri(openAiEndpoint),
            new AzureKeyCredential(openAiKey));
@@ -33,7 +31,7 @@ public sealed class DocumentHandler
             DeploymentName = deploymentName,
             Messages =
             {
-                new ChatRequestSystemMessage( prompt+fileText+"\n"),
+                new ChatRequestSystemMessage( PrompProvider.GetPrompt(fileText)),
             },
             Temperature = (float)0.7,
             MaxTokens = 800,
