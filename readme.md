@@ -1,5 +1,7 @@
 ﻿Nach einer Idee von [Gregor Biswanger](https://github.com/GregorBiswanger) und [myCodingZone](https://www.meetup.com/de-DE/My-Coding-Zone/)  
 
+ hier das passende Video dazu mit erklärung der funktion https://www.youtube.com/watch?v=3S45d0PSNqk&t=1615s
+
 # Anleitung für das Ai-File-Watcher Programm
 
 Dieses Programm verwendet Azure OpenAI, um PDF-Dokumente zu kategorisieren und entsprechend zu sortieren. Es überwacht einen bestimmten Ordner und wenn ein neues PDF-Dokument hinzugefügt wird, liest es den Text des Dokuments, sendet ihn an Azure OpenAI zur Kategorisierung und verschiebt das Dokument dann in einen entsprechenden Unterordner.
